@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mulching a Agriculture Category Bootstrap Responsive web Template|Gallery :: w3layouts</title>
+    <!--meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Mulching Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+      Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <!-- 设置 Cache -->
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control"
+          content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Cache" content="no-cache"/>
+    <!-- 引入 jquery js -->
+    <!-- 引入 echarts js -->
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--//meta tags ends here-->
+    <!--booststrap-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+    <!--//booststrap end-->
+    <!-- font-awesome icons -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!--stylesheets-->
+    <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+    <!--//stylesheets-->
+    <!-- Web-Fonts -->
+    <!-- //Web-Fonts -->
+
+</head>
+<body>
+<!--headder-->
+<div class="header-outs inner_page-banner " id="home">
+    <div class="headder-top">
+        <!--//navigation section -->
+        <!-- nav -->
+        <nav >
+            <div id="logo">
+                <h1><a href="/jump">Health</a></h1>
+            </div>
+            <label for="drop" class="toggle">Menu</label>
+            <input type="checkbox" id="drop">
+            <ul class="menu mt-2">
+                <li class="active"><a th:href="@{/jump}">主页</a></li>
+                <li class="active"><a th:href="@{/datashowResultToEcharts}">在线定制</a></li>
+                <!--<li class="mx-lg-3 mx-md-2 my-md-0 my-1"><a href="about.html">About</a></li>-->
+                <!--<li><a href="service.html">Services</a></li>-->
+                <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-2" class="toggle toogle-2">个人健康水平<span class="fa fa-angle-down" aria-hidden="true"></span>
+                    </label>
+                    <a href="#">健康 <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                    <input type="checkbox" id="drop-2">
+                    <ul>
+                        <li><a href="/nutrientintakedatashow" class="drop-text">居民每日营养摄取概况</a></li>
+                        <li><a href="/datashowMyPie" class="drop-text">居民营养摄取来源</a></li>
+                        <li><a href="/diseasecausesdatashow" class="drop-text">居民主要疾病</a></li>
+                    </ul>
+                </li>
+                <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-3" class="toggle toogle-2">医疗保障 <span class="fa fa-angle-down" aria-hidden="true"></span>
+                    </label>
+                    <a href="#">医疗保障 <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                    <input type="checkbox" id="drop-3">
+                    <ul>
+                        <li><a href="/datashowMedicalInstitution" class="drop-text">卫生机构数量</a></li>
+                        <li><a href="/medicalexpendituredatashow" class="drop-text">居民医疗支出</a></li>
+                        <li><a href="/showdatapatientnum" class="drop-text">居民患者数统计</a></li>
+                        <li><a href="/showdatamedicalbeds" class="drop-text">医疗卫生机构床位数统计</a></li>
+                    </ul>
+                </li>
+                <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-4" class="toggle toogle-2">全国健康水平 <span class="fa fa-angle-down" aria-hidden="true"></span>
+                    </label>
+                    <a href="#">全国健康水平 <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                    <input type="checkbox" id="drop-4">
+                    <ul>
+                        <li><a href="/datashowExpectedLifeMap" class="drop-text">全国预期寿命</a></li>
+                        <li><a href="/datashowPopulation" class="drop-text">人口增长</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a th:href="@{/jumplogin}" th:style="'color:white'" th:unless="${session.user}" th:text="'Login / Register'">Login / Register</a>
+                    <a th:if="${session.user}" th:style="'color:white'" th:text="${session.user.name}+' Hello!'" th:href="@{/userInfo_info}">Login / Register</a>
+                    <a th:href="@{/Logout}" th:if="${session.user}" th:style="'color:white'" th:text="'Log out !'">Login / Register</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- //nav -->
+    </div>
+</div>
+<!-- //Navigation -->
+<!--//headder-->
+<!-- short -->
+<div class="using-border py-3">
+    <div class="inner_breadcrumb  ml-4">
+        <ul class="short_ls">
+            <li>
+                <a href="/jump">主页</a>
+                <span>/ /</span>
+            </li>
+            <li>居民患者数统计</li>
+        </ul>
+    </div>
+</div>
+<!-- //short-->
+<!--Gallery-->
+<section class="gallery py-lg-4 py-md-3 py-sm-3 py-3">
+    <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <h3 class="title mb-lg-5 mb-md-4 mb-sm-4 mb-3 text-center"> 居民患者数 统计</h3>
+
+        <div class="row" style="overflow: hidden;margin: 0;">
+            <div class="container-fluid" style="padding:0;margin-left:100px ">
+                <div id="chart1"
+                     style="left:0;width: 1000px; height:600px;margin-bottom: 20px;float:left;margin-left:0px"></div>
+            </div>
+        </div>
+
+        <div class="row" style="overflow: hidden;margin: 0;">
+            <div class="container-fluid" style="padding:0;margin-left:100px ">
+                <div id="chart2"
+                     style="left:0;width: 800px; height: 600px; margin-bottom: 20px;float:left;margin-left:110px"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+  </section>
+<!--//Gallery-->
+<!-- footer -->
+<footer class="py-lg-4 py-md-3 py-sm-3 py-3">
+    <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+        <div class="footer-w3layouts-head text-center">
+            <h2><a href="index.html">Health</a></h2>
+        </div>
+        <div class="social-icons mt-lg-5 mt-md-4 mt-3 text-center">
+            <ul>
+                <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                <li><a href="#"><span class="fa fa-rss"></span></a></li>
+                <li><a href="#"><span class="fa fa-envelope"></span></a></li>
+                <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+            </ul>
+        </div>
+        <div class="bottem-wthree-footer text-center pt-md-4 pt-3">
+            <p>
+                © 2019 Health. All Rights Reserved | Design by <a href="" target="_blank">Our Team</a>
+            </p>
+        </div>
+        <!-- move icon -->
+        <div class="text-center">
+            <a href="#home" class="move-top text-center mt-3"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+        <!--//move icon -->
+    </div>
+</footer>
+<!--//footer -->
+<script type="text/javascript">
+    function loadLocalDataAndShow1() {
+        var myChart = echarts.init(document.getElementById('chart1'));
+        var posList = [
+            'left', 'right', 'top', 'bottom',
+            'inside',
+            'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+            'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+        ];
+        var app = {};
+        app.configParameters = {
+            rotate: {
+                min: -90,
+                max: 90
+            },
+            align: {
+                options: {
+                    left: 'left',
+                    center: 'center',
+                    right: 'right'
+                }
+            },
+            verticalAlign: {
+                options: {
+                    top: 'top',
+                    middle: 'middle',
+                    bottom: 'bottom'
+                }
+            },
+            position: {
+                options: echarts.util.reduce(posList, function (map, pos) {
+                    map[pos] = pos;
+                    return map;
+                }, {})
+            },
+            distance: {
+                min: 0,
+                max: 100
+            }
+        };
+
+        app.config = {
+            rotate: 90,
+            align: 'left',
+            verticalAlign: 'middle',
+            position: 'insideBottom',
+            distance: 15,
+            onChange: function () {
+                var labelOption = {
+                    normal: {
+                        rotate: app.config.rotate,
+                        align: app.config.align,
+                        verticalAlign: app.config.verticalAlign,
+                        position: app.config.position,
+                        distance: app.config.distance
+                    }
+                };
+                myChart.setOption({
+                    series: [{
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }, {
+                        label: labelOption
+                    }]
+                });
+            }
+        };
+
+
+        var labelOption = {
+            normal: {
+                show: true,
+                position: app.config.position,
+                distance: app.config.distance,
+                align: app.config.align,
+                verticalAlign: app.config.verticalAlign,
+                rotate: app.config.rotate,
+                formatter: '{c}  {name|{a}}',
+                fontSize: 16,
+                rich: {
+                    name: {
+                        textBorderColor: '#fff'
+                    }
+                }
+            }
+        };
+
+        myChart.setOption({
+            title : {
+                text : '各医疗机构患者数统计'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['医院', '基层医疗卫生机构', '专业公共卫生机构','其他医疗卫生机构']
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                left: 'right',
+                top: 'center',
+                feature: {
+                    mark: {show: true},
+                    dataView: {show: true, readOnly: false},
+                    magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            calculable: true,
+            xAxis: [
+                {
+                    type: 'category',
+                    axisTick: {show: false},
+                    data: []
+                }
+            ],
+            yAxis: [
+
+                {
+                    type: 'value',
+                    name:'单位:万人',
+                    show: true,
+                    max:900000
+                }
+            ],
+            series: [
+                {
+                    name: '医院',
+                    type: 'bar',
+                    barGap: 0,
+                    // label: labelOption,
+                    data: []
+                },
+                {
+                    name: '基层医疗卫生机构',
+                    type: 'bar',
+                    // label: labelOption,
+                    data: []
+                },
+                {
+                    name: '专业公共卫生机构',
+                    type: 'bar',
+                    // label: labelOption,
+                    data: []
+                },
+                {
+                    name: '其他医疗卫生机构',
+                    type: 'bar',
+                    // label: labelOption,
+                    data: []
+                }
+            ]
+        });
+        myChart.showLoading();
+        var years = [];
+        var hospital = [];
+        var basic = [];
+        var profession = [];
+        var others = [];
+
+        $.ajax({
+            type: 'get',
+            url: '/getpatientnum',
+            dataType: "json",
+            success: function (result) {
+                // 提取数组中的每一个元素的 category 和 num 分别放入 names、nums
+                $.each(result, function (index, item) {
+                    console.log(item.year+" "+item.num+" "+item.type)
+                    if(item.type.indexOf("医院")>=0){
+                        years.push(item.year);
+                        hospital.push(item.num);
+                    }else if(item.type.indexOf("基层医疗卫生机构")>=0){
+                        basic.push(item.num);
+                    }else if(item.type.indexOf("专业公共卫生机构")>=0){
+                        profession.push(item.num);
+                    }else if(item.type.indexOf("其他医疗卫生机构")>=0){
+                        others.push(item.num);
+                    }
+                });
+
+                myChart.hideLoading();
+                myChart.setOption({
+                    xAxis: {
+                        data: years
+                    },
+                    series: [{
+                        data: hospital
+                    }, {
+                        data: basic
+                    }, {
+                        data: profession
+                    },{
+                        data: others
+                    }
+                    ]
+                });
+            },
+            error: function (errorMsg) {
+                alert("Data is Error.");
+                myChart.hideLoading();
+            }
+        });
+    }
+    loadLocalDataAndShow1();
+</script>
+<script type="text/javascript">
+    function loadLocalDataAndShow2() {
+        var myChart = echarts.init(document.getElementById('chart2'));
+
+        myChart.setOption({
+            color: ['#003366', '#999999'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+            toolbox: {
+                feature: {
+                    dataView: {show: true, readOnly: false},
+                    magicType: {show: true, type: ['line', 'bar']},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            legend: {
+                data:['总计','平均']
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: [],
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    name: '单位:万人',
+                    min: 0,
+                    // max:,
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                },
+                {
+                    type: 'value',
+                    name: '单位:人次',
+                    min: 0,
+                    max: 6,
+                    interval: 1,
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                }
+            ],
+            series: [
+                {
+                    name:'总计',
+                    type:'bar',
+                    data:[],
+                    barWidth : 40,
+                    //设置柱状图渐变颜色
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(
+                                1, 1, 0, 0,   // 0,0,1,0表示从左向右    0,0,0,1表示从右向左
+                                [
+                                    {offset: 1, color: '#83bff6'},
+                                    {offset: 0, color: '#003366'}
+                                ]
+                            )
+                        }
+                    },
+
+                },
+                {
+                    name:'平均',
+                    yAxisIndex: 1,
+                    type:'line',
+                    data:[]
+                }
+            ]
+        });
+        myChart.showLoading();
+        var years = [];
+        var sum = [];
+        var avg = [];
+        $.ajax({
+            type: 'get',
+            url: '/getpatientnum',
+            dataType: "json",
+            success: function (result) {
+                // 提取数组中的每一个元素的 category 和 num 分别放入 names、nums
+                $.each(result, function (index, item) {
+                    console.log(item.year+" "+item.num+" "+item.type)
+                    if(item.type.indexOf("总计")>=0){
+                        years.push(item.year);
+                        sum.push(item.num);
+                    }else if(item.type.indexOf("平均")>=0){
+                        avg.push(item.num);
+                    }
+                });
+
+                myChart.hideLoading();
+                myChart.setOption({
+                    title : {
+                        text : '患者人数总计和均值统计'
+                    },
+                    xAxis: {
+                        data: years
+                    },
+                    series: [{
+                        data: sum
+                    },{
+                        data: avg
+                    }
+                    ]
+                });
+            },
+            error: function (errorMsg) {
+                alert("Data is Error.");
+                myChart.hideLoading();
+            }
+        });
+    }
+    loadLocalDataAndShow2();
+</script>
+
+
+</body>
+</html>

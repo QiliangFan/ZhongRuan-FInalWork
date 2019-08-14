@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trendy Login Form  Flat Responsive Widget Template :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Trendy Login Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="css/style1.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="js/jquery.min.js"></script>
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link  href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
+    <!-- //web font -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var msg = $('#msg').val();
+            if(msg == "不存在该用户"){
+                alert("不存在该用户！");
+                $('#msg').val('');
+            }
+        })
+    </script>
+</head>
+<body>
+<input style="display: none" th:value="${msg}"  id="msg">
+<!-- main -->
+<div class="agileits-main">
+    <div class="w3top-nav">
+        <div class="w3top-nav-left">
+            <h1><a th:href="@{/jump}">Health</a></h1>
+        </div>
+        <div class="w3top-nav-right">
+            <ul>
+                <li><a th:href="@{/jump}" style="font-size: 120%;margin-right: 30px;font-weight: bold;" >主页</a></li>
+                <li><a th:href="@{/datashowResultToEcharts}" style="font-size: 120%;margin-right: 30px;font-weight: bold;" >在线定制</a></li>
+                <li><div class="dropdown">
+                    <div class="dropdown-title"><span  style="color: white;font-size: 120%;font-weight: bold;">个人健康水平</span><span class="fa fa-chevron-down" style="color: white"></span></div>
+                    <div class="dropdown-content">
+                        <a href="/nutrientintakedatashow" class="dropdown-text" style="color:white;font-weight: bold;">居民每日营养摄取概况</a><br/><br/>
+                        <a href="/datashowMyPie" class="dropdown-text" style="color:white;font-weight: bold;">居民营养摄取来源</a><br/><br/>
+                        <a href="/diseasecausesdatashow" class="dropdown-text" style="color:white;font-weight: bold;">居民主要疾病</a>
+                    </div>
+                </div></li>
+                <li><div class="dropdown">
+                    <span class="dropdown-title" style="color: white;font-weight: bold;font-size: 120%;margin-left: 30px">医疗保障</span><span class="fa fa-chevron-down" style="color: white"></span>
+                    <div class="dropdown-content">
+                        <a href="/datashowMedicalInstitution" class="dropdown-text" style="color:white;font-weight: bold;">卫生机构数量</a><br/><br/>
+                        <a href="/medicalexpendituredatashow" class="dropdown-text" style="color:white;font-weight: bold;">居民医疗支出</a><br/><br/>
+                        <a href="/showdatapatientnum" class="dropdown-text" style="color:white;font-weight: bold;">居民患者数统计</a><br/><br/>
+                        <a href="/showdatamedicalbeds" class="dropdown-text" style="color:white;font-weight: bold;">医疗卫生机构床位数统计</a>
+                    </div>
+                </div></li>
+                <li><div class="dropdown">
+                    <span class="dropdown-title" style="color: white;font-weight: bold;font-size: 120%;margin-left: 30px">全国健康水平</span><span class="fa fa-chevron-down" style="color: white"></span>
+                    <div class="dropdown-content">
+                        <a href="/datashowExpectedLifeMap" class="dropdown-text"  style="color:white;font-weight: bold;">全国预期寿命</a><br/><br/>
+                        <a href="/datashowPopulation" class="dropdown-text" style="color:white;font-weight: bold;">人口增长</a>
+                    </div>
+                </div></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="header-main">
+        <h2>Login Now</h2>
+        <div class="header-bottom">
+            <div class="header-right w3agile">
+                <div class="header-left-bottom agileinfo">
+                    <form action="Findpwd1" method="post">
+                        <div class="icon1">
+                            <input type="text" name="name" placeholder="Please Enter your UserName" required=""/>
+                        </div>
+                        <div class="bottom">
+                            <input type="submit" value="Submit" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- //main -->
+<!-- copyright -->
+<div class="copyright w3-agile">
+    <p>© 2019 Health. All Rights Reserved | Design by<a href="#" target="_blank">Our Team</a></p>
+</div>
+<!-- //copyright -->
+</body>
+</html>

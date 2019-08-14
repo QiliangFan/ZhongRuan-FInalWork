@@ -1,0 +1,772 @@
+<!doctype html>
+<!--suppress ThymeleafVariablesResolveInspection-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- 设置 Cache -->
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control"
+          content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Cache" content="no-cache"/>
+    <!-- 引入 jquery js -->
+    <!-- 引入 echarts js -->
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
+
+
+
+    <!--  Fonts and icons     -->
+    <!--<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>-->
+    <link href="assets/css/themify-icons.css" rel="stylesheet">
+
+
+	<title>Paper Dashboard by Creative Tim</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-background-color="white" data-active-color="warning">
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a th:href="@{/jump}" href="#" class="simple-text">
+                    Health Home
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a th:href="@{/toDashBoard}">
+                        <i class="ti-panel"></i>
+                        <p>用户画像</p>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/jump5(currentPage=1)}">
+                        <i class="ti-user"></i>
+                        <p>用户浏览</p>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/managerblogall(currentPage=1)}">
+                        <i class="ti-pencil-alt2"></i>
+                        <p>Blog浏览</p>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/managerhistory(currentPage=1)}">
+                        <i class="ti-view-list-alt"></i>
+                        <p>用户历史浏览</p>
+                    </a>
+                </li>
+                <li >
+                    <a th:href="@{/managermessage(currentPage=1)}">
+                        <i class="ti-text"></i>
+                        <p>用户留言浏览</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">用户画像</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-warning text-center">
+                                        <img src="images/user.png" style="height:40px;width:40px">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>用户总数</p>
+                                            <span th:text="${userNum}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-success text-center">
+                                            <img src="images/blog.png" style="height:40px;width:40px">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>博客总数</p>
+                                            <span th:text="${blogNum}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-danger text-center">
+                                            <img src="images/history.png" style="height:40px;width:40px">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>浏览总数</p>
+                                            <span th:text="${historyNum}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-info text-center">
+                                            <img src="images/research.png" style="height:40px;width:40px">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>调查总数</p>
+                                            <span th:text="${userHealthNum}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">男性女性身高体重分布(已成年）</h4>
+                                <p class="category"></p>
+                            </div>
+                            <div class="content">
+                                <div id="chart1" class="ct-chart" style="height:600px">
+
+                                </div>
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i>
+                                        <i class="fa fa-circle text-danger"></i>
+                                        <i class="fa fa-circle text-warning"></i>
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">用户性别分布</h4>
+                                <p class="category"></p>
+                            </div>
+                            <div class="content">
+                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
+
+                                </div>
+
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i>
+                                        <i class="fa fa-circle text-danger"></i>
+                                        <i class="fa fa-circle text-warning"></i>
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-timer"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">用户年龄分布</h4>
+                                <p class="category"></p>
+                            </div>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart"></div>
+
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i>
+                                        <i class="fa fa-circle text-warning"></i>
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+
+                        <li>
+                            <a href="#">
+                                Creative Tim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://blog.creative-tim.com">
+                               Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/license">
+                                Licenses
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright pull-right">
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    function loadLocalDataAndShow1() {
+        // 1 - 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart1'));
+        // 2 - 设置 ECharts 配置项，显示标题，空图例和空数据的坐标轴
+        myChart.setOption({
+            title : {
+                text: '',
+            },
+            grid: {
+                left: '3%',
+                right: '7%',
+                bottom: '3%',
+                containLabel: true//不能改
+            },
+            tooltip : {
+                // trigger: 'axis',
+                showDelay : 0,
+                formatter : function (params) {
+                    if (params.value.length > 1) {
+                        return params.seriesName + ' :<br/>'
+                            + params.value[0] + 'cm '
+                            + params.value[1] + 'kg ';
+                    }
+                    else if(params.name.indexOf("体重")>=0) {
+                        return params.name + ' : '
+                            + params.value + 'kg ';
+                    }
+                    else {
+                        return params.name + ' : '
+                            + params.value + 'cm';
+
+                    }
+                },
+                axisPointer:{
+                    show: true,
+                    type : 'cross',
+                    lineStyle: {
+                        type : 'dashed',
+                        width : 1
+                    }
+                }
+            },
+            toolbox: {
+                feature: {
+                    dataZoom: {},
+                    brush: {
+                        type: ['rect', 'polygon', 'clear']
+                    },
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+
+            legend: {
+                data: ['女性','男性'],
+                left: 'center'
+            },
+            xAxis : [
+                {
+                    min:140,
+                    max:200,
+                    interval:10,
+
+                    type : 'value',
+                    scale:true,//不能改
+                    axisLabel : {
+                        formatter: '{value} cm'
+                    },
+                    splitLine:
+                        {
+                            show:false,//不显示x轴分割线
+                        }
+                }
+            ],
+            yAxis : [
+                {
+                    min:40,
+                    max:120,
+                    interval:10,
+
+                    type : 'value',
+                    scale:true,
+                    axisLabel : {
+                        formatter: '{value} kg'
+                    },
+                    splitLine: {
+                        show: false
+                    }
+                }
+            ],
+            series : [
+                {
+                    name:'女性',
+                    type:'scatter',
+                    data: [],
+                    markArea: {
+                        silent: true,//不响应鼠标事件
+                        itemStyle: {
+                            normal: {
+                                color: 'transparent',//设置标记区域内颜色
+                                borderWidth: 1,
+                                borderType: 'dashed'
+                            }
+                        },
+                        //
+                        data: [
+                            [
+                                {
+                                    name: '女性分布区间',
+                                    xAxis: 'min',
+                                    yAxis: 'min'
+                                },
+                                {
+                                    xAxis: 'max',
+                                    yAxis: 'max'
+                                }
+                            ]
+                        ]
+                    },//标记区域
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '身高最大值',valueIndex:0},
+                            {type : 'min', name: '身高最小值',valueIndex:0},
+                            {type : 'max', name: '体重最大值',valueIndex:1},
+                            {type : 'min', name: '体重最小值',valueIndex:1},
+                        ]
+                    },//标记点
+                    markLine : {
+                        lineStyle: {
+                            normal: {
+                                type: 'solid'
+                            }
+                        },
+                        data : [
+                            {type : 'average', name: '身高平均值',valueIndex:0},
+                            {type:'average',name:'体重平均值',valueIndex:1}
+
+                        ]
+                    }
+                },//以上为女性的数据处理
+                {
+                    name:'男性',
+                    type:'scatter',
+                    data: [],
+                    markArea: {
+                        silent: true,
+                        itemStyle: {
+                            normal: {
+                                color: 'transparent',
+                                borderWidth: 1,
+                                borderType: 'dashed'
+                            }
+                        },
+                        data: [
+                            [
+                                {
+                                    name: '男性分布区间',
+                                    xAxis: 'min',
+                                    yAxis: 'min'
+                                },
+                                {
+                                    xAxis: 'max',
+                                    yAxis: 'max'
+                                }
+                            ]
+                        ]
+                    },
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '身高最大值',valueIndex:0},
+                            {type : 'min', name: '身高最小值',valueIndex:0},
+                            {type : 'max', name: '体重最大值',valueIndex:1},
+                            {type : 'min', name: '体重最小值',valueIndex:1},
+                        ]
+                    },
+                    markLine : {
+                        lineStyle: {
+                            normal: {
+                                type: 'solid'
+                            }
+                        },
+                        data : [
+                            {type : 'average', name: '身高平均值',valueIndex:0},
+                            {type:'average',name:'体重平均值',valueIndex:1}
+                        ]
+                    }
+                }
+            ]
+
+        });
+
+        myChart.showLoading(); //数据加载完之前先显示一段简单的loading动画
+
+        // 3-0 数据准备，声明数据容器
+        var male=[];
+        var female = [];
+        // 3-1 通过 ajax 异步调用获取本地数据，并填入数据
+        $.ajax({
+            type : 'get',					// 请求方式
+            url:"getUserHealth",
+            dataType : "json", 	//返回数据形式为 json
+            success : function(result) {
+                //请求成功时执行该函数内容，result即为服务器（本处为本地数据文件）返回的json对象
+                // 遍历 result，其中 index 和 item 是必需的参数
+                $.each(result, function(index, item) {
+                    //   alert(index + result[index].gender + result[index].countnum);
+                    if(result[index].gender=="男")
+                    {
+                        male.push([result[index].height,result[index].weight]);
+
+                    }
+                    else
+                    {
+                        female.push([result[index].height,result[index].weight]);
+
+                    }
+                });
+
+                myChart.hideLoading(); //隐藏加载动画
+                myChart.setOption({ //加载数据图表
+                    // legend: {
+                    //     data: genders
+                    // },
+                    series: [{
+                        data: female
+                    },
+                        {
+                            data:male
+                        }
+
+                    ]
+                });
+            },
+
+            error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("图表请求数据失败!");
+                myChart.hideLoading();
+            }
+        });
+    };
+    loadLocalDataAndShow1();
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    function loadLocalDataAndShow2() {
+        var myChart = echarts.init(document.getElementById('chartPreferences'));
+        myChart.setOption({
+            title : {
+                text : ''
+            },
+            tooltip : {
+                trigger:'item',//[ default: 'item' ]触发类型。数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
+                formatter:"{a}<br/>{b}:{c} ({d}%)"
+            },
+            toolbox: {
+                feature: {
+                    dataView: {show: true, readOnly: false},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            legend : {
+                top:30,
+                orient:'vertical',//图例列表的布局朝向 horizontal/vertical
+                x : 'left'	,	// 设置图例显示位置
+                data:[],//如果 data 没有被指定，会自动从当前系列中获取。饼图 and 漏斗图 等会取自 series.data 中的 name
+                itemgap:10,
+                itemWidth:15,
+                itemHeight:14,
+                selectedMode:'multiple'
+            },
+            series : [ {
+                // 设置成绝对的像素值
+               // center: [350, 180],//宽度，高度
+                name : '性别：',	// 设置系列的名称，同时是图例的名称
+                type : 'pie',		// 设置图标类型
+                center: ['50%', '60%'],
+                radius:['50%','70%'],//设置饼状图内外半径
+                avoidLabelOverlap:false,//目前不知道有什么用
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data : []
+            } ]
+            // ,color:['#68EE85', '#444348','#63B6ED','#7787EC']
+        });
+
+        myChart.showLoading();
+        var category=[];
+        var res = [];
+        $.ajax({
+            type : 'get',
+            url:"getUserGender",
+            dataType : "json",
+            success : function(result) {
+                $.each(result, function(index, item) {
+                    res.push({
+                        name:result[index].type,
+                        value:result[index].num
+                    });
+                    category.push(result[index].type);
+                });
+
+                myChart.hideLoading();
+                myChart.setOption({
+                    legend: {
+                        data: category
+                    },
+                    series: [{
+                        data: res
+                    }]
+                });
+            },
+
+            error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("图表请求数据失败!");
+                myChart.hideLoading();
+            }
+        });
+    };
+    loadLocalDataAndShow2();
+</script>
+
+<script type="text/javascript">
+    function loadLocalDataAndShow3() {
+        var myChart = echarts.init(document.getElementById('chartActivity'));
+        myChart.setOption({
+            title : {
+                text : ''
+            },
+            tooltip : {
+                trigger:'item',//[ default: 'item' ]触发类型。数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
+                formatter:"{a}<br/>{b}:{c} ({d}%)"
+            },
+            toolbox: {
+                feature: {
+                    dataView: {show: true, readOnly: false},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            legend : {
+                top:30,
+                orient:'vertical',//图例列表的布局朝向 horizontal/vertical
+                x : 'left'	,	// 设置图例显示位置
+                data:[],//如果 data 没有被指定，会自动从当前系列中获取。饼图 and 漏斗图 等会取自 series.data 中的 name
+                itemgap:10,
+                itemWidth:15,
+                itemHeight:14,
+                selectedMode:'multiple'
+            },
+            series : [ {
+                // 设置成绝对的像素值
+                // center: [350, 180],//宽度，高度
+                name : '年龄：',	// 设置系列的名称，同时是图例的名称
+                type : 'pie',		// 设置图标类型
+                radius:['50%','70%'],//设置饼状图内外半径
+                center: ['50%', '60%'],
+                avoidLabelOverlap:false,//目前不知道有什么用
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data : []
+            } ]
+            // ,color:['#68EE85', '#444348','#63B6ED','#7787EC']
+        });
+
+        myChart.showLoading();
+        var category=[];
+        var res = [];
+        $.ajax({
+            type : 'get',
+            url:"getUserAge",
+            dataType : "json",
+            success : function(result) {
+                $.each(result, function(index, item) {
+                    res.push({
+                        name:result[index].type,
+                        value:result[index].num
+                    });
+                    category.push(result[index].type);
+                });
+
+                myChart.hideLoading();
+                myChart.setOption({
+                    legend: {
+                        data: category
+                    },
+                    series: [{
+                        data: res
+                    }]
+                });
+            },
+
+            error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("图表请求数据失败!");
+                myChart.hideLoading();
+            }
+        });
+    };
+    loadLocalDataAndShow3();
+</script>
+</body>
+
+
+
+
+
+</html>

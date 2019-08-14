@@ -1,0 +1,56 @@
+.drawBar, .drawPie{
+    box-shadow: #6c757d 0 0 5px;
+    cursor: pointer;
+    border-radius: 26px;
+    overflow: hidden;
+    background: rgba(255, 245, 216, 0.6);
+}
+
+.drawBar:hover, .drawPie:hover{
+    box-shadow: #ff0c00 0 0 5px;
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+#myBar,#myPie{
+    display: block;
+    position:relative;
+    align-self: center;
+    width: 50%;
+    height: 60%;
+    margin: 35% auto  5% auto;
+}
+
+.enter{
+    transition: all ease-in-out;
+    animation: shakeEnter 2s cubic-bezier(0.1,0.1,0.1,0.1);
+}
+
+@keyframes shakeEnter {
+    0%{
+        transform:scale(1) translate(300px,0px);
+
+    }
+    /*12%{*/
+    /*    transform:scale(1.1) translate(350px,-25px);*/
+    /*    */
+    /*}*/
+    25%{
+        transform:scale(1.2) translate(200px,-50px);
+    }
+    /*37%{*/
+    /*    transform:scale(1.1) translate(250px,-25px);*/
+    /*}*/
+    50%{
+        transform:scale(1) translate(100px,0);
+    }
+    /*65%{*/
+    /*    transform:scale(1) translate(150,-25px);*/
+    /*}*/
+    75%{
+        transform:scale(1.2) translate(0,-50px);
+    }
+    100%{
+        transform:scale(1) translate(0,0);
+    }
+}

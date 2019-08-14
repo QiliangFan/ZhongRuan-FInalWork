@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mulching a Agriculture Category Bootstrap Responsive web Template|Gallery :: w3layouts</title>
+    <!--meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Mulching Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+      Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--//meta tags ends here-->
+    <!--booststrap-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+    <!--//booststrap end-->
+    <!-- font-awesome icons -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!--stylesheets-->
+    <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+    <!--//stylesheets-->
+    <!-- Web-Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poiret+One&amp;subset=cyrillic,latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Mada:200,300,400,500,600,700,900&amp;subset=arabic" rel="stylesheet">
+    <!-- //Web-Fonts -->
+
+    <!--liang 's JS and  CSS-->
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="js/echarts.js"></script>
+    <script type="text/javascript" src="myEcharts/resultToBar.js"></script>
+    <link rel="stylesheet" href="css/resultToAll.css">
+    <script type="text/javascript" src="myEcharts/drawEcharts.js"></script>
+</head>
+<body>
+<!--headder-->
+<div class="header-outs inner_page-banner " id="home">
+    <div class="headder-top">
+        <!--//navigation section -->
+        <!-- nav -->
+        <nav >
+            <div id="logo">
+                <h1><a href="/jump">Health</a></h1>
+            </div>
+            <label for="drop" class="toggle">Menu</label>
+            <input type="checkbox" id="drop">
+            <ul class="menu mt-2">
+                <li class="active"><a th:href="@{/jump}">主页</a></li>
+                <li class="active"><a th:href="@{/datashowResultToEcharts}">在线定制</a></li>
+                <!--<li class="mx-lg-3 mx-md-2 my-md-0 my-1"><a href="about.html">About</a></li>-->
+                <!--<li><a href="service.html">Services</a></li>-->
+                <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-2" class="toggle toogle-2">个人健康水平<span class="fa fa-angle-down" aria-hidden="true"></span>
+                    </label>
+                    <a href="#">健康 <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                    <input type="checkbox" id="drop-2">
+                    <ul>
+                        <li><a href="/nutrientintakedatashow" class="drop-text">居民每日营养摄取概况</a></li>
+                        <li><a href="/datashowMyPie" class="drop-text">居民营养摄取来源</a></li>
+                        <li><a href="/diseasecausesdatashow" class="drop-text">居民主要疾病</a></li>
+                    </ul>
+                </li>
+                <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-3" class="toggle toogle-2">医疗保障 <span class="fa fa-angle-down" aria-hidden="true"></span>
+                    </label>
+                    <a href="#">医疗保障 <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                    <input type="checkbox" id="drop-3">
+                    <ul>
+                        <li><a href="/datashowMedicalInstitution" class="drop-text">卫生机构数量</a></li>
+                        <li><a href="/medicalexpendituredatashow" class="drop-text">居民医疗支出</a></li>
+                        <li><a href="/showdatapatientnum" class="drop-text">居民患者数统计</a></li>
+                        <li><a href="/showdatamedicalbeds" class="drop-text">医疗卫生机构床位数统计</a></li>
+                    </ul>
+                </li>
+                <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-4" class="toggle toogle-2">全国健康水平 <span class="fa fa-angle-down" aria-hidden="true"></span>
+                    </label>
+                    <a href="#">全国健康水平 <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                    <input type="checkbox" id="drop-4">
+                    <ul>
+                        <li><a href="/datashowExpectedLifeMap" class="drop-text">全国预期寿命</a></li>
+                        <li><a href="/datashowPopulation" class="drop-text">人口增长</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a th:href="@{/jumplogin}" th:style="'color:white'" th:unless="${session.user}" th:text="'Login / Register'">Login / Register</a>
+                    <a th:if="${session.user}" th:style="'color:white'" th:text="${session.user.name}+' Hello!'" th:href="@{/userInfo_info}">Login / Register</a>
+                    <a th:href="@{/Logout}" th:if="${session.user}" th:style="'color:white'" th:text="'Log out !'">Login / Register</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- //nav -->
+    </div>
+</div>
+<!-- //Navigation -->
+<!--//headder-->
+<!-- short -->
+<div class="using-border py-3">
+    <div class="inner_breadcrumb  ml-4">
+        <ul class="short_ls">
+            <li>
+                <a href="index.html">主页</a>
+                <span>/ /</span>
+            </li>
+            <li>在线绘制</li>
+        </ul>
+    </div>
+</div>
+<!-- //short-->
+<!--Gallery-->
+<section class="gallery py-lg-4 py-md-3 py-sm-3 py-3">
+    <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <h3 class="title mb-lg-5 mb-md-4 mb-sm-4 mb-3 text-center"><a href="/datashowResultToPie"
+                                                                      style="text-decoration: none;color: #ff0c00;">
+            绘制柱状图</a></h3>
+        <div class="row gallery-info">
+            <div class="col-md-6 textBorder">
+                <div style="width: 100%;height: 100%;overflow: hidden;">
+                    <form action="/analysisBar" method="POST" enctype="multipart/form-data"
+                          style="width: 100%;margin-top: 15px;">
+                        <input type="file" name="input">
+                        <input type="submit" value="Upload">
+                    </form>
+                    <hr style="border-width: 2px;width:100vw;margin: 5px;display: inline-block;">
+                    <textarea id="dataBar" style="width: 100%;height:80%;resize:none;"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6 textBorder">
+                <div id="resultToBar" style="height: 500px;width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--//Gallery-->
+<!-- footer -->
+<footer class="py-lg-4 py-md-3 py-sm-3 py-3">
+    <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+        <div class="footer-w3layouts-head text-center">
+            <h2><a href="index.html">Health</a></h2>
+        </div>
+        <div class="social-icons mt-lg-5 mt-md-4 mt-3 text-center">
+            <ul>
+                <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                <li><a href="#"><span class="fa fa-rss"></span></a></li>
+                <li><a href="#"><span class="fa fa-envelope"></span></a></li>
+                <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+            </ul>
+        </div>
+        <div class="bottem-wthree-footer text-center pt-md-4 pt-3">
+            <p>
+                © 2019 Health. All Rights Reserved | Design by <a href="" target="_blank">Our Team</a>
+            </p>
+        </div>
+        <!-- move icon -->
+        <div class="text-center">
+            <a href="#home" class="move-top text-center mt-3"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+        <!--//move icon -->
+    </div>
+</footer>
+<!--//footer -->
+</body>
+</html>
