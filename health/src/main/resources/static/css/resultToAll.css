@@ -1,0 +1,14 @@
+.textBorder{
+    box-shadow: #6c757d 0 0 3px;
+    height: 500px;
+}
+
+input{
+    border-radius: 26px;
+    cursor: pointer;
+}
+
+input:hover{
+
+    box-shadow: #d3b195 0  0 3px;
+}

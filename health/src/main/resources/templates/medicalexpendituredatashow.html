@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mulching a Agriculture Category Bootstrap Responsive web Template|Gallery :: w3layouts</title>
+    <!--meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Mulching Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+      Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <!-- 设置 Cache -->
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control"
+          content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Cache" content="no-cache"/>
+    <!-- 引入 jquery js -->
+    <!-- 引入 echarts js -->
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--//meta tags ends here-->
+    <!--booststrap-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+    <!--//booststrap end-->
+    <!-- font-awesome icons -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!--stylesheets-->
+    <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+    <!--//stylesheets-->
+    <!-- Web-Fonts -->
+<!--    <link href="//fonts.googleapis.com/css?family=Poiret+One&amp;subset=cyrillic,latin-ext" rel="stylesheet">-->
+<!--    <link href="//fonts.googleapis.com/css?family=Mada:200,300,400,500,600,700,900&amp;subset=arabic" rel="stylesheet">-->
+    <!-- //Web-Fonts -->
+
+</head>
+<body>
+<!--headder-->
+<div class="header-outs inner_page-banner " id="home">
+    <div class="headder-top">
+        <!--//navigation section -->
+        <!-- nav -->
+        <nav >
+            <div id="logo">
+                <h1><a href="/jump">Health</a></h1>
+            </div>
+            <label for="drop" class="toggle">Menu</label>
+            <input type="checkbox" id="drop">
+            <ul class="menu mt-2">
+                <li class="active"><a th:href="@{/jump}">主页</a></li>
+                <li class="active"><a th:href="@{/datashowResultToEcharts}">在线定制</a></li>
+                <!--<li class="mx-lg-3 mx-md-2 my-md-0 my-1"><a href="about.html">About</a></li>-->
+                <!--<li><a href="service.html">Services</a></li>-->
+                <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-2" class="toggle toogle-2">个人健康水平<span class="fa fa-angle-down" aria-hidden="true"></span>
+                    </label>
+                    <a href="#">健康 <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                    <input type="checkbox" id="drop-2">
+                    <ul>
+                        <li><a href="/nutrientintakedatashow" class="drop-text">居民每日营养摄取概况</a></li>
+                        <li><a href="/datashowMyPie" class="drop-text">居民营养摄取来源</a></li>
+                        <li><a href="/diseasecausesdatashow" class="drop-text">居民主要疾病</a></li>
+                    </ul>
+                </li>
+                <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-3" class="toggle toogle-2">医疗保障 <span class="fa fa-angle-down" aria-hidden="true"></span>
+                    </label>
+                    <a href="#">医疗保障 <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                    <input type="checkbox" id="drop-3">
+                    <ul>
+                        <li><a href="/datashowMedicalInstitution" class="drop-text">卫生机构数量</a></li>
+                        <li><a href="/medicalexpendituredatashow" class="drop-text">居民医疗支出</a></li>
+                        <li><a href="/showdatapatientnum" class="drop-text">居民患者数统计</a></li>
+                        <li><a href="/showdatamedicalbeds" class="drop-text">医疗卫生机构床位数统计</a></li>
+                    </ul>
+                </li>
+                <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                    <!-- First Tier Drop Down -->
+                    <label for="drop-4" class="toggle toogle-2">全国健康水平 <span class="fa fa-angle-down" aria-hidden="true"></span>
+                    </label>
+                    <a href="#">全国健康水平 <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                    <input type="checkbox" id="drop-4">
+                    <ul>
+                        <li><a href="/datashowExpectedLifeMap" class="drop-text">全国预期寿命</a></li>
+                        <li><a href="/datashowPopulation" class="drop-text">人口增长</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a th:href="@{/jumplogin}" th:style="'color:white'" th:unless="${session.user}" th:text="'Login / Register'">Login / Register</a>
+                    <a th:if="${session.user}" th:style="'color:white'" th:text="${session.user.name}+' Hello!'" th:href="@{/userInfo_info}">Login / Register</a>
+                    <a th:href="@{/Logout}" th:if="${session.user}" th:style="'color:white'" th:text="'Log out !'">Login / Register</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- //nav -->
+    </div>
+</div>
+<!-- //Navigation -->
+<!--//headder-->
+<!-- short -->
+<div class="using-border py-3">
+    <div class="inner_breadcrumb  ml-4">
+        <ul class="short_ls">
+            <li>
+                <a href="/jump">主页</a>
+                <span>/ /</span>
+            </li>
+            <li>居民医疗支出与消费占比统计</li>
+        </ul>
+    </div>
+</div>
+<!-- //short-->
+<!--Gallery-->
+<section class="gallery py-lg-4 py-md-3 py-sm-3 py-3">
+    <div class="container py-lg-5 py-md-4 py-sm-4 py-3" style="height:1000px;padding-left:0px;">
+        <div id="main" style="width: 600px;height:400px;float:left"></div>
+        <div id="proportion" style="width: 450px;height:400px;float:left;margin-left: 40px;"></div>
+        <div id="trend"
+             style="width: 800px; height: 500px; margin-bottom: 20px;float:left;margin-left: 150px;"></div>
+    </div>
+
+            <div class="row" style="overflow: hidden;margin: 0;">
+                <div class="container-fluid" style="padding:0;margin-left:3px ">
+                    <div id="bubble"
+                         style="border-radius:2em;width: 1000px; height: 600px; margin-bottom: 20px;margin-left: 170px"></div>
+                </div>
+            </div>
+
+
+
+  </section>
+<!--//Gallery-->
+<!-- footer -->
+<footer class="py-lg-4 py-md-3 py-sm-3 py-3">
+    <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+        <div class="footer-w3layouts-head text-center">
+            <h2><a href="index.html">Health</a></h2>
+        </div>
+        <div class="social-icons mt-lg-5 mt-md-4 mt-3 text-center">
+            <ul>
+                <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                <li><a href="#"><span class="fa fa-rss"></span></a></li>
+                <li><a href="#"><span class="fa fa-envelope"></span></a></li>
+                <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+            </ul>
+        </div>
+        <div class="bottem-wthree-footer text-center pt-md-4 pt-3">
+            <p>
+                © 2019 Health. All Rights Reserved | Design by <a href="" target="_blank">Our Team</a>
+            </p>
+        </div>
+        <!-- move icon -->
+        <div class="text-center">
+            <a href="#home" class="move-top text-center mt-3"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+        <!--//move icon -->
+    </div>
+</footer>
+<!--//footer -->
+<script type="text/javascript">
+    function loadLocalDataAndShow1() {
+        // 1 - 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('bubble'));
+        // 2 - 设置 ECharts 配置项，显示标题，空图例和空数据的坐标轴
+        myChart.setOption({
+            backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
+                offset: 0,
+                color: '#f7f8fa'
+            }, {
+                offset: 1,
+                color: '#cdd0d5'
+            }]),
+
+            title : {
+                text : '医疗支出地区分布情况概览',
+
+            },
+            legend : {
+                right: 10,
+                data: ['农村', '城市']
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: '{c}'
+            },
+            xAxis: {
+                name:'人均年消费\n支出(元)',
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                }
+            },
+            yAxis: {
+                name:'人均医疗保健支出（元）',
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+                scale: true
+            },
+            dataZoom: [
+                {
+                    type: 'slider',
+                    show: true,
+                    handleSize: 8
+                },
+                {
+                    type: 'inside'
+                },
+                {
+                    type: 'slider',
+                    show: true,
+                    yAxisIndex: 0,
+                    filterMode: 'empty',
+                    width: 12,
+                    height: '70%',
+                    handleSize: 8,
+                    showDataShadow: false,
+                    left: '93%'
+                }
+
+            ],
+            series : [
+                {
+                    name: '农村',
+                    data: [],
+                    type: 'scatter',
+                    symbolSize: function (data) {
+                        return data[2]*2;//根据占比算半径
+                    },
+                    label: {
+                        emphasis: {
+                            show: true,
+                            position: 'top',
+                            formatter: function (param) {
+                                return param.data[3];
+                            },
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            shadowBlur: 10,
+                            shadowColor: 'rgba(120, 36, 50, 0.5)',
+                            shadowOffsetY: 5,
+                            color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+                                offset: 0,
+                                color: 'rgb(251, 118, 123)'
+                            }, {
+                                offset: 1,
+                                color: 'rgb(204, 46, 72)'
+                            }])
+                        }
+                    },
+
+                }, {
+                    name: '城市',
+                    data: [],
+                    type: 'scatter',
+                    symbolSize: function (data) {
+                        return data[2]*2;//根据占比算半径
+                    },
+                    label: {
+                        emphasis: {
+                            show: true,
+                            formatter: function (param) {
+                                return param.data[3];
+                            },
+                            position: 'top'
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            shadowBlur: 10,
+                            shadowColor: 'rgba(25, 100, 150, 0.5)',
+                            shadowOffsetY: 5,
+                            color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+                                offset: 0,
+                                color: 'rgb(129, 227, 238)'
+                            }, {
+                                offset: 1,
+                                color: 'rgb(25, 183, 207)'
+                            }])
+                        }
+                    }
+                }
+            ]
+        });
+
+        myChart.showLoading(); //数据加载完之前先显示一段简单的loading动画
+
+        // 3-0 数据准备，声明数据容器
+        var country=[];
+        var village = [];
+        // 3-1 通过 ajax 异步调用获取本地数据，并填入数据
+        $.ajax({
+            type : 'get',					// 请求方式
+            url:"getMedicalExpenditure1",
+            dataType : "json", 	//返回数据形式为 json
+            success : function(result) {
+                //请求成功时执行该函数内容，result即为服务器（本处为本地数据文件）返回的json对象
+                // 遍历 result，其中 index 和 item 是必需的参数
+                $.each(result, function(index, item) {
+                    //   alert(index + result[index].gender + result[index].countnum);
+                    if(result[index].location=="农村")
+                    {
+                        village.push([
+                            result[index].totalcost,
+                            result[index].medicalcost,
+                            result[index].proportion,
+                            result[index].subtype,
+                            result[index].location
+                        ]);
+
+                    }
+                    else
+                    {
+                        country.push([
+                            result[index].totalcost,
+                            result[index].medicalcost,
+                            result[index].proportion,
+                            result[index].subtype,
+                            result[index].location
+                        ]);
+
+
+                    }
+                });
+
+                myChart.hideLoading(); //隐藏加载动画
+                myChart.setOption({ //加载数据图表
+                    // legend: {
+                    //     data: genders
+                    // },
+                    series: [{
+                        data: village
+                    },
+                        {
+                            data:country
+                        }
+
+                    ]
+                });
+            },
+
+            error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("图表请求数据失败!");
+                myChart.hideLoading();
+            }
+        });
+    };
+    loadLocalDataAndShow1();
+</script>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('proportion'));
+    // 指定图表的配置项和数据
+    var option = {
+
+
+        title: {
+            text: '消费结构概览',
+            left: 'center',
+            top: 20,
+            textStyle: {
+                color: 'blue'
+            }
+        },
+
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+
+        series : [
+            {
+                name:'访问来源',
+                type:'pie',
+                radius : '55%',
+                center: ['50%', '50%'],
+                data:[
+                    {value:5373.6 ,name:'食品烟酒' },
+                    {value:4106.9,name:'居住'},
+                    {value:2498.9,name:'交通通信'},
+                    {value:2086.2,name:'教育文化娱乐'},
+                    {value:1451.2,name:'医疗保健'},
+                    {value:1237.6,name:'衣着'},
+                    {value:1120.7,name:'生活用品及服务'}
+                ].sort(function (a, b) { return a.value - b.value; }),
+                roseType: 'radius',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'black'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: 'blue'
+                        },
+                        smooth: 0.2,
+                        length: 10,
+                        length2: 20
+                    }
+                },
+
+
+                animationType: 'scale',
+                animationEasing: 'elasticOut',
+                animationDelay: function (idx) {
+                    return Math.random() * 200;
+                }
+            }
+        ],
+        color:['#000168','#000195','#0002C4','#5A5FDF','#9294EF','#CDCEFE','#2A37E7' ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    var pathSymbols= {
+        food: 'path://M74.1 242.5l305.1-0.3c5.2-0.3 8.9-2.5 10.2-7.7l28.1-92c11.7-23.8 29.4-36.7 55.9-33.7l200.1-1.2-0.1 39.2-189.7 0.6c-13.2 1.7-22.1 8.3-26.6 19.8l-18.6 62.6c-2.2 8.9 0.1 13 6.9 12.3h63.8l-35.4 595.8H114L74.1 242.5z m93 674l713.2-3.5c52-5.6 76.7 5.7 79.7-55.5L64 861c1 56 43.8 54.5 103.1 55.5zM580.2 837l282-1.8c52-5.6 61.7-33.3 64.8-94.4l-412.3 0.5c-2.2 60 8.1 87.8 65.5 95.7z m-20.8-237.1c-32.6 2.3-53.5 18.7-55.7 57.5 2.7 37.7 24.9 52.2 55.9 56.4 15.5-1.1 30.8-7.2 42.1-17.7 12.8 10.6 26.6 16.8 43.6 17.9 16 0.1 29.1-4.1 37.8-14.5 7.9 9.3 20.8 14.1 38.9 14 18.3 0 32.9-5.9 40.8-13.8 10.1 10.1 23.4 14.6 39 15.2 15.3-2.2 27.5-7.7 37.3-14.5 12.8 11.9 28.1 15.5 44.8 13.9 36.3-7.9 51.7-29.6 49.7-63-5.4-36-25.1-50.1-53.3-51.4-15.8-1.9-29.9 4.5-43.1 15.5-10.6-11.4-24-16-40.2-13.9-12.9-2.7-25.3 2.5-37.3 13.3-7.9-8.9-19.9-13.3-35.2-14.1-12.5-0.6-27.2 3.2-38.1 13.7-1.3 1.3-2.6 1-3.6 0.4-11.2-12.2-25.6-15.3-41.8-15.2-15.8-0.2-28.1 6.8-37.9 18.6-13-14.4-27.6-20.4-43.7-18.3z m45.6-126c-62.3 6.7-92.3 40.1-90.1 100.1h411.3c-3.1-61.2-30.6-94.5-82.6-100.1H605zM118.1 289.3l5.7 112.6c1.8 5.8 5.4 9 11.7 8.5l199-2.3c4.6-0.1 7.5-2.3 9-6.4l29.8-110.2c-0.6-4.1-2.4-6.8-6.3-7.2l-243.1 0.3c-3.4 0.2-5.4 1.8-5.8 4.7z m343.8 112.4l5.7-' +
+            '109.9c-1.8-5.8-3.4-7.5-8.6-7.3l-29.6-0.6c-4.7 0.1-7.5 2.4-9 6.5l-30.7 109.4c0.6 4.1 2.4 6.8 6.3 7.2l60.1-0.6c3.4 0 5.3-1.6 5.8-4.7z',
+        house: 'path://M0 1024h512V0H0v1024zM292.571429 73.142857h146.285714v146.285714H292.571429V73.142857z m0 219.428572h146.285714v146.285714H292.571429V292.571429z m0 219.428571h146.285714v146.285714H292.571429V512zM73.142857 73.142857h146.285714v146.285714H73.142857V73.142857z m0 219.428572h146.285714v146.285714H73.142857V292.571429z m0 219.428571h146.285714v146.285714H73.142857V512z m519.314286 512h146.285714v-219.428571h219.428572v219.428571h65.828571V592.457143H592.457143V1024z m0-592.457143H1024V512H592.457143V431.542857z',
+        transportation: 'path://M782.37696 122.88H262.02112C203.10016 122.88 163.84 171.8272 163.84 230.56384v450.31424c0 58.73664 39.26016 107.68384 98.18112 107.68384h520.43776c58.92096 0 98.18112-48.9472 98.18112-107.68384V230.56384C880.55808 171.8272 841.3184 122.88 782.37696 122.88zM349.3888 719.4624a53.28896 53.28896 0 0 1-53.37088-53.18656 53.22752 53.22752 0 0 1 53.37088-53.12512 53.26848 53.26848 0 0 1 53.3504 53.12512 53.248 53.248 0 0 1-53.3504 53.20704z m339.98848 0a53.28896 53.28896 0 0 1-53.37088-53.18656 53.22752 53.22752 0 0 1 53.37088-53.12512 53.26848 53.26848 0 0 1 53.37088 53.12512 53.28896 53.28896 0 0 1-53.37088 53.20704z m92.99968-224.5632c0 16.7936-12.65664 39.13728-29.42976 39.13728H291.45088c-16.85504 0-29.42976-22.4256-29.42976-39.13728V279.51104c0-16.7936 12.65664-39.1168 29.42976-39.1168h461.49632c16.85504 0 29.42976 22.3232 29.42976 39.1168v215.38816zM360.20224 837.50912c0 36.47488-24.7808 63.61088-61.35808 63.61088a66.1504 66.1504 0 0 1-66.2528-66.048v-26.89024h127.61088v29.32736z m441.83552 0c0 36.47488-24.7808 63.61088-61.35808 63.61088a66.1504 66.1504 0 0 1-66.2528-66.048v-26.89024h127.61088v29.32736z',
+        education: 'path://M917.5 289.7L583.6 146c-22.9-9.9-47.2-14.8-71.6-14.8s-48.7 4.9-71.6 14.8l-334 143.8c-56.6 24.4-56.6 106.5 0 130.9l2.5 1.1c0 0.2-0.1 0.4-0.1 0.7v134.4c0 12.4 10 22.4 22.4 22.4s22.4-10 22.4-22.4V441l44.8 19.3v298.1c0 74.2 140.4 134.4 313.6 134.4s313.6-60.2 313.6-134.4V460.2l91.9-39.6c56.7-24.3 56.7-106.5 0-130.9zM512 848c-166.7 0-268.8-58-268.8-89.6V693c54.8 39.1 154.5 65.4 268.8 65.4 41.2 0 80.3-3.5 116.3-9.7 10.6-1.8 18.1-11.2 18.1-21.9v-0.1c0-13.8-12.3-24.4-25.9-22-32.1 5.5-68.4 8.9-108.5 8.9-166.7 0-268.8-58-268.8-89.6V479.5l197.2 84.9c22.9 9.9 47.2 14.8 71.6 14.8s48.7-4.9 71.6-14.8l197.2-84.9V624c0 16.1-26.6 39.1-74.8 57.8-8.8 3.4-14.8 11.6-14.8 21v0.1c0 15.6 15.7 26.6 30.2 21.1 23.2-8.9 43.2-19.4 59.4-30.9v65.3C780.8 790 678.7 848 512 848z m387.8-468.5l-334 143.8c-17.2 7.4-35.3 11.1-53.9 11.1s-36.7-3.7-53.9-11.1L124 379.5c-13.9-6-15.4-19-15.4-24.3s1.5-18.3 15.4-24.3l334-143.8c17.2-7.4 35.3-11.1 53.9-11.1s36.7 3.7 53.9 11.1l334 143.8c13.9 6 15.4 19 15.4 24.3s-1.5 18.3-15.4 24.3z',
+        medical: 'path://M755.870752 242.884796l-47.152926 0 0-34.556027c0-54.628178-44.720527-99.088786-99.670024-99.088786L414.186765 109.239983c-54.948473 0-99.650581 44.722574-99.650581 99.691513l0 33.9533L267.383258 242.884796c-76.848249 0-139.350768 62.522985-139.350768 139.370211l0 395.248949c0 76.826759 62.502519 139.349745 139.350768 139.349745l488.487493 0c76.848249 0 139.351791-62.522985 139.351791-139.349745L895.222543 382.255007C895.222543 305.406758 832.719001 242.884796 755.870752 242.884796zM373.14093 208.931496c0-22.662139 18.423605-41.066301 41.045835-41.066301l194.861036 0c23.023366 0 41.066301 17.759479 41.066301 40.463574l0 34.556027L373.14093 242.884796 373.14093 208.931496zM836.615751 777.502933c0 44.519959-36.222993 80.742952-80.744999 80.742952L267.383258 858.245885c-44.522006 0-80.744999-36.222993-80.744999-80.742952L186.638259 382.255007c0-44.520983 36.222993-80.744999 80.744999-80.744999l488.487493 0c44.522006 0 80.744999 36.224016 80.744999 80.744999L836.615751 777.502933z',
+        clothes: 'path://M965.911 310.531l-174.4-174.398c-13.022-13.021-30.933-19.649-49.381-18.228-1.74-0.15-3.422-0.224-5.07-0.224l-92.914 0-6.517 3.625c-34.421 19.146-78.341 29.689-123.668 29.689-45.328 0-89.246-10.543-123.667-29.689l-6.518-3.625L290.86 117.681c-23.691 0-44.986 12.924-55.995 33.451L62.477 323.521c-11.9 11.899-18.454 27.72-18.454 44.548 0 16.829 6.554 32.649 18.453 44.549l125.953 125.955c10.54 10.538 24.157 16.878 38.826 18.181l0 304.399c0 35.073 28.533 63.606 63.604 63.606l446.199 0c35.074 0 63.607-28.533 63.607-63.606l-0.001-317.345c14.844-1.211 28.639-7.577 39.288-18.224L965.91 399.628C990.475 375.064 990.475 335.095 965.911 310.531z',
+        service:'path://M674.6 561.2H343c-9.6 0-17.5 7.8-17.5 17.5 0 9.6 7.8 17.5 17.5 17.5h331.6c9.6 0 17.5-7.8 17.5-17.5-0.1-9.7-7.9-17.5-17.5-17.5z m104.7-192H756c-0.3-0.6-0.5-1.3-0.8-1.9L615.8 143.5c-9.6-16.7-30.9-22.4-47.6-12.8L538 148.1c-16.7 9.6-22.4 30.9-12.7 47.6l110.3 173.5H400.7l111.6-174c9.8-16.8 4-38.3-13-48l-30.7-17.6c-17-9.7-38.7-3.9-48.5 12.9L278.3 368.4c-0.2 0.3-0.2 0.5-0.4 0.8h-39.7c-19.3 0-34.9 15.6-34.9 34.9V439c0 13.1 7.3 24.3 17.9 30.3-0.2 1.5-0.5 3-0.5 4.6l17.5 261.8c0 77.1 62.5 139.6 139.6 139.6h261.8c77.1 0 139.6-62.5 139.6-139.6L796.7 474c0-1.6-0.3-3.1-0.5-4.6 10.6-6 17.9-17.2 17.9-30.3v-34.9c0.1-19.3-15.5-35-34.8-35zM564.2 193.4c-4.8-8.3-2-19 6.4-23.8 8.3-4.8 19-2 23.8 6.4L716 369.2h-40.2L564.2 193.4zM442 175.3c4.9-8.4 15.7-11.3 24.2-6.4s11.4 15.6 6.5 24l-113 176.4h-41l123.3-194z m302.4 560.4c0 57.8-46.9 104.7-104.7 104.7H377.9c-57.8 0-104.7-46.9-104.7-104.7l-17.5-244.3c0-9.6 7.8-17.5 17.5-17.5h471.2c9.6 0 17.5 7.8 17.5 17.5l-17.5 244.3zM761.8 439H255.7c-9.6 0-17.5-7.8-17.5-17.5 0-9.6 7.8-17.5 17.5-17.5h506.1c9.6 0 17.5 7.8 17.5 17.5s-7.8 17.5-17.5 17.5z m-87.2 209.5H343c-9.6 0-17.5 7.8-17.5 17.5 0 9.6 7.8 17.5 17.5 17.5h331.6c9.6 0 17.5-7.8 17.5-17.5-0.1-9.7-7.9-17.5-17.5-17.5z m0 87.2H343c-9.6 0-17.5 7.8-17.5 17.5 0 9.6 7.8 17.5 17.5 17.5h331.6c9.6 0 17.5-7.8 17.5-17.5-0.1-9.7-7.9-17.5-17.5-17.5z'
+    }
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '居民消费水平概览',
+            textStyle: {
+                color: 'blue'
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'none'
+            },
+            formatter: function (params) {
+                return params[0].name + ': ' + params[0].value;
+            }
+        },
+        grid:{
+
+            top:'100',
+            containLabel: true
+        },
+
+        xAxis: {
+            data: ["食品烟酒","居住","交通通信","教育文化娱乐","医疗保健","衣着","生活用品及服务"],
+            axisTick: {show: false},
+            axisLine: {show: false},
+
+            axisLabel:{
+                textStyle: {
+                    color: 'blue'
+                },
+                interval: 0,//标签设置为全部显示
+                formatter:function(params){
+                    var newParamsName = "";// 最终拼接成的字符串
+                    var paramsNameNumber = params.length;// 实际标签的个数
+                    var provideNumber = 6;// 每行能显示的字的个数
+                    var rowNumber = Math.ceil(paramsNameNumber / provideNumber);// 换行的话，需要显示几行，向上取整
+                    /**
+                     * 判断标签的个数是否大于规定的个数， 如果大于，则进行换行处理 如果不大于，即等于或小于，就返回原标签
+                     */
+                    // 条件等同于rowNumber>1
+                    if (paramsNameNumber > provideNumber) {
+                        /** 循环每一行,p表示行 */
+                        for (var p = 0; p < rowNumber; p++) {
+                            var tempStr = "";// 表示每一次截取的字符串
+                            var start = p * provideNumber;// 开始截取的位置
+                            var end = start + provideNumber;// 结束截取的位置
+                            // 此处特殊处理最后一行的索引值
+                            if (p == rowNumber - 1) {
+                                // 最后一次不换行
+                                tempStr = params.substring(start, paramsNameNumber);
+                            } else {
+                                // 每一次拼接字符串并换行
+                                tempStr = params.substring(start, end) + "\n";
+                            }
+                            newParamsName += tempStr;// 最终拼成的字符串
+                        }
+
+                    } else {
+                        // 将旧标签的值赋给新标签
+                        newParamsName = params;
+                    }
+                    //将最终的字符串返回
+                    return newParamsName
+                }
+            }
+        },
+        yAxis: {
+            splitLine: {show: false},
+            axisTick: {show: false},
+            axisLine: {show: false},
+            axisLabel: {show: false}
+
+        },
+        color:['blue'],
+        series: [
+            {
+                top:40,
+                name: 'hill',
+                type: 'pictorialBar',
+                barCategoryGap: '-130%',
+                symbol: 'path://M0,10 L10,10 C5.5,10 5.5,5 5,0 C4.5,5 4.5,10 0,10 z',
+                itemStyle: {
+                    normal: {
+                        opacity: 0.5
+                    },
+                    emphasis: {
+                        opacity: 1
+                    }
+                },
+                data: [5373.6,4106.9,2498.9,2086.2,1451.2,1237.6,1120.7],
+                z: 10
+            },
+
+
+
+
+
+            {
+                name: '消费支出',
+                type: 'pictorialBar',
+                barGap: '-100%',
+                symbolPosition: 'end',
+                symbolSize: 50,
+                symbolOffset: [0, '-120%'],
+                data: [
+                    {
+                        value: 5373.6,
+                        symbol: pathSymbols.food,
+                        symbolSize: [40,40]
+                    }, {
+                        value: 4106.9,
+                        symbol: pathSymbols.house,
+                        symbolSize: [40,40]
+                    }, {
+                        value: 2498.9,
+                        symbol: pathSymbols.transportation,
+                        symbolSize: [40,40]
+                    }, {
+                        value: 2086.2,
+                        symbol: pathSymbols.education,
+                        symbolSize: [40,40]
+                    }, {
+                        value: 1451.2,
+                        symbol: pathSymbols.medical,
+                        symbolSize: [40,40]
+                    }, {
+                        value: 1237.6,
+                        symbol: pathSymbols.clothes,
+                        symbolSize: [40,40]
+                    }, {
+                        value: 1120.7,
+                        symbol: pathSymbols.service,
+                        symbolSize: [40,40]
+                    }
+                ]
+            }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+<script type="text/javascript">
+    function loadLocalDataAndShow2() {
+        var myChart = echarts.init(document.getElementById('trend'));
+        myChart.setOption({
+            title : {
+                text : '医疗支出占比趋势分析'
+            },
+            tooltip : {
+                trigger:'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+            toolbox: {
+                feature: {
+                    dataView: {show: true, readOnly: false},
+                    magicType: {show: true, type: ['line', 'bar']},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            legend : {
+                data:['城市','农村'],//如果 data 没有被指定，会自动从当前系列中获取。饼图 and 漏斗图 等会取自 series.data 中的 name
+
+            },
+            xAxis: [
+                {
+                    type:'category',
+                    data: [],//填充年份
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    name: '医疗支出占比',
+                    // min: 0,
+                    // max: 250,
+                    // interval: 50,
+                    axisLabel: {
+                        formatter: '{value}%'
+                    }
+                }
+            ],
+            series : [ {
+                name:'城市',
+                type : 'bar',
+                data : []
+            },
+
+                {
+                    name:'农村',
+                    type:'bar',
+                    data:[]
+                }
+            ],
+            color:['#007AB4','#98CFE4'],
+        });
+
+        myChart.showLoading();
+       var city=[];
+       var village=[];
+        var year=[];
+        $.ajax({
+            type : 'get',
+            url:"getMedicalExpenditure3",
+            dataType : "json",
+            success : function(result) {
+                $.each(result, function(index, item) {
+                   // alert(index + result[index].location + result[index].proportion);
+                    if(result[index].location=="城市")
+                    {
+                        city.push(
+                            result[index].proportion
+
+                        );
+                        year.push(result[index].subtype)
+                    }
+                    if(result[index].location=="农村")
+                    {village.push(
+                        result[index].proportion
+                    );}
+
+                });
+
+                myChart.hideLoading();
+                myChart.setOption({
+
+                    series: [
+                        {
+                            data: city
+                        },
+                        ,{data:village}
+                    ]
+                    ,
+                    xAxis: [
+                        {
+
+                            data: year,//填充年份
+
+                        }
+                    ]
+
+
+                });
+            },
+
+
+            error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("图表请求数据失败!");
+                myChart.hideLoading();
+            }
+        });
+    };
+    loadLocalDataAndShow2();
+</script>
+</body>
+</html>

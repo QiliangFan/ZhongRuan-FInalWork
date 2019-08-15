@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>index</title>
+    <!--meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Mulching Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+      Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="text/javascript">
+      addEventListener("load", function () {
+      	setTimeout(hideURLbar, 0);
+      }, false);
+      
+      function hideURLbar() {
+      	window.scrollTo(0, 1);
+      }
+
+      // 获取模型
+      var modal = document.getElementById('id01');
+
+      // 鼠标点击模型外区域关闭登录框
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+    </script>
+    <!--//meta tags ends here-->
+    <!--booststrap-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+    <!--//booststrap end-->
+    <!-- font-awesome icons -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!--stylesheets-->
+    <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+    <!--//stylesheets-->
+
+      <script src="js/jquery.min.js" type="text/javascript"></script>
+<!--      <script src="js/bootstrap.min.js" type="text/javascript"></script>-->
+      <script type="text/javascript">
+          $(document).ready(function(){
+              var msg = $('#msg').val();
+              if(msg == "留言成功"){
+                  alert("留言成功！");
+                  $('#msg').val('');
+              }
+          })
+      </script>
+      <style type="text/css">
+          /* Full-width input fields */
+          input[type=text], input[type=password] {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              box-sizing: border-box;
+          }
+
+          /* Set a style for all buttons */
+          /*button {*/
+          /*    background-color: #4CAF50;*/
+          /*    color: white;*/
+          /*    padding: 14px 20px;*/
+          /*    margin: 8px 0;*/
+          /*    border: none;*/
+          /*    cursor: pointer;*/
+          /*    width: 100%;*/
+          /*}*/
+
+          button:hover {
+              opacity: 0.8;
+          }
+
+          /* Extra styles for the cancel button */
+          /*.cancelbtn {*/
+          /*    width: auto;*/
+          /*    padding: 10px 18px;*/
+          /*    background-color: #f44336;*/
+          /*}*/
+
+          /* Center the image and position the close button */
+          .imgcontainer {
+              text-align: center;
+              margin: 24px 0 12px 0;
+              position: relative;
+          }
+
+          img.avatar {
+              width: 40%;
+              border-radius: 50%;
+          }
+
+          .container {
+              padding: 16px;
+          }
+
+          span.psw {
+              float: right;
+              padding-top: 16px;
+          }
+          .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+              padding-top: 60px;
+          }
+          .modal-content {
+              background-color: #fefefe;
+              margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+              border: 1px solid #888;
+              width: 60%; /* Could be more or less, depending on screen size */
+          }
+          .close {
+              position: absolute;
+              right: 25px;
+              top: 0;
+              color: #000;
+              font-size: 35px;
+              font-weight: bold;
+          }
+          .close:hover,
+          .close:focus {
+              color: red;
+              cursor: pointer;
+          }
+          .animate {
+              -webkit-animation: animatezoom 0.6s;
+              animation: animatezoom 0.6s
+          }
+          @-webkit-keyframes animatezoom {
+              from {-webkit-transform: scale(0)}
+              to {-webkit-transform: scale(1)}
+          }
+          @keyframes animatezoom {
+              from {transform: scale(0)}
+              to {transform: scale(1)}
+          }
+          @media screen and (max-width: 300px) {
+              span.psw {
+                  display: block;
+                  float: none;
+              }
+              .cancelbtn {
+                  width: 100%;
+              }
+          }
+      </style>
+  </head>
+  <body>
+  <input style="display: none" th:value="${msg}"  id="msg">
+    <div class="main-top" id="home">
+        <div style="width:100vw;height: 800px;overflow: hidden;position: absolute;z-index: 0;">
+            <img class="main-background" src="./images/b3.jpg">
+        </div>
+      <div >
+      <!-- header -->
+      <div class="headder-top" style="z-index: 10;">
+        <!-- nav -->
+        <nav >
+          <div id="logo">
+            <h1><a th:href="@{/jump}" href="#">Health</a></h1>
+          </div>
+          <label for="drop" class="toggle">Menu</label>
+          <input type="checkbox" id="drop">
+          <ul class="menu mt-2">
+            <li class="active"><a th:href="@{/jump}">主页</a></li>
+              <li class="active"><a th:href="@{/datashowResultToEcharts}">在线定制</a></li>
+            <!--<li class="mx-lg-3 mx-md-2 my-md-0 my-1"><a href="about.html">About</a></li>-->
+            <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+              <!-- First Tier Drop Down -->
+              <label for="drop-2" class="toggle toogle-2">个人健康水平<span class="fa fa-angle-down" aria-hidden="true"></span>
+              </label>
+              <a href="#">个人健康水平<span class="fa fa-angle-down" aria-hidden="true"></span></a>
+              <input type="checkbox" id="drop-2">
+              <ul>
+                  <li><a href="/nutrientintakedatashow" class="drop-text">居民每日营养摄取概况</a></li>
+                  <li><a href="/datashowMyPie" class="drop-text">居民营养摄取来源</a></li>
+                  <li><a href="/diseasecausesdatashow" class="drop-text">居民主要疾病</a></li>
+              </ul>
+            </li>
+             <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+              <!-- First Tier Drop Down -->
+              <label for="drop-3" class="toggle toogle-2">医疗保障 <span class="fa fa-angle-down" aria-hidden="true"></span>
+              </label>
+              <a href="#">医疗保障 <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+              <input type="checkbox" id="drop-3">
+              <ul>
+                <li><a href="/datashowMedicalInstitution" class="drop-text">卫生机构数量</a></li>
+                <li><a href="/medicalexpendituredatashow" class="drop-text">居民医疗支出</a></li>
+                  <li><a href="/showdatapatientnum" class="drop-text">居民患者数统计</a></li>
+                  <li><a href="/showdatamedicalbeds" class="drop-text">医疗卫生机构床位数统计</a></li>
+              </ul>
+            </li>
+            <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+              <!-- First Tier Drop Down -->
+              <label for="drop-4" class="toggle toogle-2">全国健康水平 <span class="fa fa-angle-down" aria-hidden="true"></span>
+              </label>
+              <a href="#">全国健康水平<span class="fa fa-angle-down" aria-hidden="true"></span></a>
+              <input type="checkbox" id="drop-4">
+              <ul>
+                  <li><a href="/datashowExpectedLifeMap" class="drop-text">全国预期寿命</a></li>
+                  <li><a href="/datashowPopulation" class="drop-text">人口增长</a></li>
+              </ul>
+            </li>
+            <li><a th:href="@{/jumplogin}" th:style="'color:white'" th:unless="${session.user}" th:text="'Login / Register'">Login / Register</a>
+                <a th:if="${session.user}" th:style="'color:white'" th:text="${session.user.name}+' Hello!'" th:href="@{/userInfo_info}">Login / Register</a>
+                <a th:href="@{/Logout}" th:if="${session.user}" th:style="'color:white'" th:text="'Log out !'">Login / Register</a>
+<!--                <a href="Login" th:if="${session.user}==null and ${session.user.name} ==''" th:text="Login / Register">Login / Register</a>-->
+<!--                <a href="Login" th:if="${session.user}!=null and ${session.user.name}!=''" th:text="${session.user.name}+' Hello!'">Login / Register</a>-->
+            </li>
+
+          </ul>
+        </nav>
+        <!-- //nav -->
+      </div>
+      <!-- //header -->
+      <!-- banner -->
+      <div class="main-banner text-center" style="width:100vw;position: absolute;margin: auto;">
+<!--      <div class="main-banner text-center" >-->
+        <div class="container" style="width:100%;margin: auto;align-self: center;">
+<!--        <div class="container" >-->
+          <div class="style-banner">
+            <h4 class="mb-2">Welcome to Our Home</h4>
+            <h5>for health statistics
+            </h5>
+          </div>
+          <div class="two-demo-button mt-md-4 mt-3">
+            <p> Do you have any health problem ? </p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- //banner -->
+    	</div>
+    	
+    	
+    <!-- about -->
+    <section class="about py-lg-4 py-md-3 py-sm-3 py-3" id="about">
+      <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <div class="row">
+		 <div class="col-lg-6 about-imgs-txt">
+             <img src="images/1.jpg" alt="news image" class="img-fluid">
+          </div>
+         <div class="col-lg-6 text-right about-two-grids">
+            <h3 class="title  mb-md-4 mb-sm-3 mb-3">About Health </h3>
+            <div class="about-para-txt">
+              <p>在成为道德优越的证明前，健康多多少少都与“粗俗”联系在一起。而健康之所以粗俗，最大原因就是站在其对立面的疾病承担起了大量的文化隐喻。</p><br/>
+              <p class="mt-2">对我自己来说，健康从来都不是粗俗的，它是一种正常的状态，能够保证我有足够的精力来工作和创作，但它背后的隐喻却无论在哪个时期都显得俗不可耐。健康和疾病，从本质上来说，其实只是其本身，不可理解又没有意义。</p>
+            </div>
+            <div class="view-buttn mt-lg-5 mt-md-4 mt-3">
+              <a th:href="@{/getAllBlog(currentPage=1)}" class=" scroll">Read More</a>
+            </div>
+          </div>
+		  
+        </div>
+      </div>
+    </section>
+    <!-- //about -->
+	<section class="blog_w3ls pb-5" id="why">
+		<div class="container pb-xl-5 pb-lg-3">
+			<h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Some health tips</h3>
+			<div class="row">
+				<!-- blog grid -->
+				<div class="col-lg-4 col-md-6">
+					<div class="card border-0 med-blog">
+						<div class="card-header p-0">
+							<a href="#">
+								<img class="card-img-bottom" src="images/g1.jpg" alt="Card image cap">
+							</a>
+						</div>
+						<div class="card-body border border-top-0">
+							<div class="mb-3">
+								<h5 class="blog-title card-title m-0">Sleep Early
+								</h5>
+								<div class="blog_w3icon">
+									<span><!--可以加作者-->
+										</span>
+								</div>
+							</div>
+							<p>程序员不是只有在晚上效率才高</p>
+						</div>
+					</div>
+				</div>
+				<!-- //blog grid -->
+				<!-- blog grid -->
+				<div class="col-lg-4 col-md-6 mt-md-0 mt-5">
+					<div class="card border-0 med-blog">
+						<div class="card-header p-0">
+							<a href="#">
+								<img class="card-img-bottom" src="images/g2.jpg" alt="Card image cap">
+							</a>
+						</div>
+						<div class="card-body border border-top-0">
+							<div class="mb-3">
+								<h5 class="blog-title card-title m-0">Health Diet
+								</h5>
+								<div class="blog_w3icon">
+									<span>
+										<!--可以加作者--></span>
+								</div>
+							</div>
+							<p>外卖和泡面，今天吃哪个？</p>
+						</div>
+					</div>
+				</div>
+				<!-- //blog grid -->
+				<!-- blog grid -->
+				<div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
+					<div class="card border-0 med-blog">
+						<div class="card-header p-0">
+							<a href="#">
+								<img class="card-img-bottom" src="images/g6.jpg" alt="Card image cap">
+							</a>
+						</div>
+						<div class="card-body border border-top-0">
+							<div class="mb-3">
+								<h5 class="blog-title card-title m-0">Do Actions
+								</h5>
+								<div class="blog_w3icon">
+									<span>
+										<!--可以加作者--></span>
+								</div>
+							</div>
+							<p>可以选择站着敲代码</p>
+						</div>
+					</div>
+				</div>
+				<!-- //blog grid -->
+			</div>
+		</div>
+	</section>
+    <!-- stats -->
+   <section class="stats-count py-lg-4 py-md-3 py-sm-3 py-3">
+      <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3">
+        <div class="row text-center">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-6 number-w3three-info ">
+           <span class="fa fa-smile-o" data-blast="bgColor"></span>
+		   <h5 id="num1">1392730000</h5>
+            <h6 class="pt-2">我国人口总数</h6>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-6 number-w3three-info">
+           <span class="fa fa-shield" data-blast="bgColor"></span>
+		   <h5 id="num2">76.7</h5>
+            <h6 class="pt-2">预期寿命</h6>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-6 number-w3three-info">
+            <span class="fa fa-leaf" data-blast="bgColor"></span>
+			<h5 id="num3">10.94%</h5>
+            <h6 class="pt-2">出生率</h6>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-6 number-w3three-info">
+            <span class="fa fa-thumbs-o-up" data-blast="bgColor"></span>
+			<h5 id="num4">7.09‰</h5>
+            <h6 class="pt-2">死亡率</h6>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--//stats -->
+    <!-- service -->
+    <section class="service py-lg-4 py-md-3 py-sm-3 py-3" id="service">
+      <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Our Statistics</h3>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center">
+            <div class="ser-Agriculture-grid">
+              <div class="about-icon mb-md-4 mb-3">
+                <span class="fa fa-apple" aria-hidden="true"></span>
+              </div>
+              <div class="ser-sevice-grid">
+                <h4 class="pb-3"><a href="/datashowExpectedLifeMap" style="color: black;">全国预期寿命统计</a> </h4>
+                <p>综合全国及３１个省,自 治 区,直辖 市预期寿命数据。给出预期寿命的全国分布与整体趋势</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center">
+            <div class="ser-Agriculture-grid">
+              <div class="about-icon mb-md-4 mb-3">
+                <span class="fa fa-skyatlas" aria-hidden="true"></span>
+              </div>
+              <div class="ser-sevice-grid">
+                <h4 class="pb-3"><a href="/datashowMedicalInstitution" style="color: black;">卫生机构数量统计</a></h4>
+                <p>
+                    介绍全国及３１个省,自 治 区,直辖 市 医 疗卫生机构 数,主要包括各级各类医
+                    院,基层医疗卫生机构、专业公共卫生机构和其他医疗卫生机构数与医院等级情况 </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center">
+            <div class="ser-Agriculture-grid">
+              <div class="about-icon mb-md-4 mb-3">
+                <span class="fa fa-yelp" aria-hidden="true"></span>
+              </div>
+              <div class="ser-sevice-grid">
+                <h4 class="pb-3"><a href="/medicalexpendituredatashow" style="color: black;">居民医疗支出统计</a></h4>
+                <p>
+                    采用2000年至2017年统计年鉴数据，结合人均消费水平对我国城乡居民卫生费用及医疗保健支出现状及变化趋势进行分析。 </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 mt-lg-4 mt-3 service-grid-wthree text-center">
+            <div class="ser-Agriculture-grid">
+              <div class="about-icon mb-md-4 mb-3">
+                <span class="fa fa-viadeo" aria-hidden="true"></span>
+              </div>
+              <div class="ser-sevice-grid">
+                <h4 class="pb-3"><a href="/diseasecausesdatashow" style="color: black;">居民主要疾病统计</a></h4>
+                <p>本章主要介绍我国居民病伤死亡原因,内容包括各种疾病致死率，疾病组成在性别中的差异体现 。</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 mt-lg-4 mt-3 service-grid-wthree text-center">
+            <div class="ser-Agriculture-grid">
+              <div class="about-icon mb-md-4 mb-3">
+                <span class="fa fa-pagelines" aria-hidden="true"></span>
+              </div>
+              <div class="ser-sevice-grid">
+                <h4 class="pb-3"><a href="/datashowMyPie" style="color: black;">居民营养摄取来源统计</a></h4>
+                <p>分析居民日常营养摄取来源，对比各种营养摄取占比</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 mt-lg-4 mt-3 service-grid-wthree text-center">
+            <div class="ser-Agriculture-grid">
+              <div class="about-icon mb-md-4 mb-3">
+                <span class="fa fa-leaf" aria-hidden="true"></span>
+              </div>
+              <div class="ser-sevice-grid">
+                <h4 class="pb-3"><a href="/showdatamedicalbeds" style="color: black;">医疗卫生机构床位数统计</a></h4>
+                <p>选取医疗设施中最关键的床位，来反映中国目前的医疗保障水平</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- //service -->
+    <!-- client -->
+    <section class="client py-lg-4 py-md-3 py-sm-3 py-3" id="client">
+      <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Data Sources</h3>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 cilent-item text-center">
+            <div class="mb-lg-4 mb-3 clients-ile-img">
+              <img src="images/tongjiju.jpg" alt=" " class="img-fluid">
+            </div>
+            <div class="clients-color-ile text-center">
+              <p>国家统计局是国务院直属机构，主管全国统计和国民经济核算工作，拟定统计工作法规、统计改革和统计现代化建设规划以及国家统计调查计划，组织领导和监督检查各地区、各部门的统计和国民经济核算工作，监督检查统计法律法规的实施。
+              </p>
+              <div class="mt-3 clients-txt-ile">
+                <h4>国家统计局</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 cilent-item text-center">
+            <div class="mb-lg-4 mb-3 clients-ile-img">
+              <img src="images/weishengnianjian.jpg" alt=" " class="img-fluid">
+            </div>
+            <div class="clients-color-ile text-center">
+              <p>《中国卫生健康统计年鉴》是一部反映中国卫生健康事业发展情况和居民健康状况的资料性年刊。本书收录了全国及31个省、自治区、直辖市卫生健康事业发展情况和目前居民健康水平的统计数据,以及历史重要年份的全国统计数据。
+              </p>
+              <div class="mt-3 clients-txt-ile">
+                <h4>《中国卫生健康年鉴》 </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--//client -->
+	 <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
+      <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <h3 th:if="${session.user}" class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Contact Us</h3>
+<!--          <h3  th:unless="${session.user}" class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3" th:text="Join Us">Join Us</h3>-->
+<!--          <h4 th:unless="${session.user}" class="pb-3" style="text-align: center"><a href="#" style="color: black;text-align: center">联络邮箱，1035847702@qq.com , 注册后登录可快速表达你的意见哟 ~</a></h4>-->
+          <h4 th:unless="${session.user}" class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Join Us ！</h4>
+        <div class="row" th:if="${session.user}">
+
+            <div class="col-lg-1 col-md-1">
+            </div>
+          <div class="newsletter col-lg-4 col-md-4">
+                  <h4 class="mb-3">Questionnaire</h4>
+<!--                      <button type="button" class="btn btn-primary btn-lg" style=" margin-left: 25%;" data-toggle="modal" data-target="#myModal">-->
+                      <button type="button" class="btn1" style=" margin-left: 10%;" onclick="document.getElementById('id01').style.display='block'">
+                          <span class="fa fa-venus" aria-hidden="true"></span>
+                      </button>
+              <button type="button" class="btn1" style=" margin-left: 10%;" onclick="document.getElementById('id02').style.display='block'">
+                  <span class="fa fa-transgender-alt" aria-hidden="true"></span>
+              </button>
+          </div>
+
+            <div class="col-lg-1 col-md-1">
+            </div>
+
+          <div class="col-lg-5 col-md-5 contact-form-txt ">
+<!--            <form th:if="${session.user}" th:action="@{/addmessage}"  th:method="post" action="#" method="post">-->
+
+            <form th:if="${session.user}" th:onsubmit="return messageForm()" th:action="@{/addmessage}" th:method="post">
+                <div class="w3pvt-wls-contact-mid">
+                <div class="form-group contact-forms">
+                  <input type="text" class="form-control" name="name" placeholder="Name" required="">
+                </div>
+                <div class="form-group contact-forms">
+                  <input type="email" class="form-control" placeholder="Email" name="email" required="">
+                </div>
+                <div class="form-group contact-forms">
+                  <input type="text" class="form-control" placeholder="Phone" name="phone" required="">
+                </div>
+                <div class="form-group contact-forms">
+                  <textarea class="form-control" placeholder="Message" name="content" rows="3" required=""></textarea>
+                </div>
+                  <input name="userid" th:if="${session.user}" th:value="${session.user.id}" style="display:none" >
+                <button type="submit" class="btn sent-butnn">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+    <!-- footer -->
+    <footer class="py-lg-4 py-md-3 py-sm-3 py-3">
+      <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+        <div class="footer-w3layouts-head text-center">
+          <h2><a href="index.html">Health</a></h2>
+        </div>
+        <div class="social-icons mt-lg-5 mt-md-4 mt-3 text-center">
+          <ul>
+            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+            <li><a href="#"><span class="fa fa-rss"></span></a></li>
+            <li><a href="#"><span class="fa fa-envelope"></span></a></li>
+            <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+          </ul>
+        </div>
+        <div class="bottem-wthree-footer text-center pt-md-4 pt-3">
+          <p> 
+            © 2019 Health. All Rights Reserved | Design by <a href="#" target="_blank">Our Team</a></p>
+          </p>
+        </div>
+        <!-- move icon -->
+        <div class="text-center">
+          <a href="#home" class="move-top text-center mt-3"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+        <!--//move icon -->
+      </div>
+    </footer>
+    <!--//footer -->
+
+  <div id="id01" class="modal">
+
+      <form class="modal-content animate" action="doQuest">
+
+          <div class="container">
+              <label><b>年龄</b></label>
+              <input type="text" placeholder="年龄" name="age" required>
+              <label><b>收缩压</b></label>
+              <input type="text" placeholder="收缩压(90~140mmHg)" name="systolic_blood" required>
+              <label><b>舒张压</b></label>
+              <input type="text" placeholder="舒张压(60~90mmHg)" name="diastolic_blood" required>
+              <label><b>脉搏</b></label>
+              <input type="text" placeholder="脉搏(60~100次/分钟)" name="pulse" required>
+              <label><b>肺活量</b></label>
+              <input type="text" placeholder="肺活量(ml)" name="lung_capacity" required>
+              <label><b>握力</b></label>
+              <input type="text" placeholder="握力(kg)" name="grip" required>
+              <label><b>身高</b></label>
+              <input type="text" placeholder="身高(cm)" name="height" required>
+              <label><b>体重</b></label>
+              <input type="text" placeholder="体重(kg)" name="weight" required>
+              <label><b>腰围</b></label>
+              <input type="text" placeholder="腰围(40-120cm)" name="waist_length" required>
+              <label><b>常痛部位个数</b></label>
+              <input type="text" placeholder="常痛部位个数(-1~1,0正常)" name="pca_1" required>
+              <label><b>生活自理能力</b></label>
+              <input type="text" placeholder="生活自理能力(-1~1,0正常)" name="pca_2" required>
+              <label><b>身体机能</b></label>
+              <input type="text" placeholder="身体机能(-1~1,0正常)" name="pca_3" required>
+              <label><b>中年以前身体状况</b></label>
+              <input type="text" placeholder="中年以前身体状况(-1~1,0正常)" name="pca_4" required>
+              <label><b>反应灵活程度</b></label>
+              <input type="text" placeholder="反应灵活程度(-1~1,0正常)" name="pca_5" required>
+              <label><b>睡眠状况</b></label>
+              <input type="text" placeholder="睡眠状况(-1~1,0正常)" name="pca_6" required>
+              <label><b>身体不协调程度</b></label>
+              <input type="text" placeholder="身体不协调程度(-1~1,0正常)" name="pca_7" required>
+              <label><b>饮食状况</b></label>
+              <input type="text" placeholder="饮食状况(-1~1,0正常)" name="pca_8" required>
+              <label><b>男科疾病</b></label>
+              <input type="text" placeholder="男科疾病(-1~1,0正常)" name="pca_9" required>
+              <label><b>锻炼状况</b></label>
+              <input type="text" placeholder="锻炼状况(-1~1,0正常)" name="pca_10" required>
+              <input type="text" style="display: none" name="gender" value="男">
+              <button  type="submit" style="margin-left: 47%;">提交</button>
+          </div>
+
+          <div class="container" style="background-color:#f1f1f1">
+              <button class="btn btn-default" type="button" onclick="document.getElementById('id01').style.display='none'">Cancel</button>
+          </div>
+      </form>
+  </div>
+  <div id="id02" class="modal">
+
+      <form class="modal-content animate" action="doQuest">
+
+          <div class="container">
+              <label><b>年龄</b></label>
+              <input type="text" placeholder="年龄" name="age" required>
+              <label><b>收缩压</b></label>
+              <input type="text" placeholder="收缩压(90~140mmHg)" name="systolic_blood" required>
+              <label><b>舒张压</b></label>
+              <input type="text" placeholder="舒张压(60~90mmHg)" name="diastolic_blood" required>
+              <label><b>脉搏</b></label>
+              <input type="text" placeholder="脉搏(60~100次/分钟)" name="pulse" required>
+              <label><b>肺活量</b></label>
+              <input type="text" placeholder="肺活量(ml)" name="lung_capacity" required>
+              <label><b>握力</b></label>
+              <input type="text" placeholder="握力(kg)" name="grip" required>
+              <label><b>身高</b></label>
+              <input type="text" placeholder="身高(cm)" name="height" required>
+              <label><b>体重</b></label>
+              <input type="text" placeholder="体重(kg)" name="weight" required>
+              <label><b>腰围</b></label>
+              <input type="text" placeholder="腰围(40-120cm)" name="waist_length" required>
+              <label><b>常痛部位个数</b></label>
+              <input type="text" placeholder="常痛部位个数(-1~1,0正常)" name="pca_1" required>
+              <label><b>反应灵活程度</b></label>
+              <input type="text" placeholder="反应灵活程度(-1~1,0正常)" name="pca_2" required>
+              <label><b>身体机能</b></label>
+              <input type="text" placeholder="身体机能(-1~1,0正常)" name="pca_3" required>
+              <label><b>生活自理能力</b></label>
+              <input type="text" placeholder="生活自理能力(-1~1,0正常)" name="pca_4" required>
+              <label><b>睡眠状况</b></label>
+              <input type="text" placeholder="睡眠状况(-1~1,0正常)" name="pca_5" required>
+              <label><b>牙口状况</b></label>
+              <input type="text" placeholder="牙口状况(-1~1,0正常)" name="pca_6" required>
+              <label><b>年轻时身体状况</b></label>
+              <input type="text" placeholder="年轻时身体状况(-1~1,0正常)" name="pca_7" required>
+              <label><b>饮食状况</b></label>
+              <input type="text" placeholder="饮食状况(-1~1,0正常)" name="pca_8" required>
+              <label><b>中年前身体状况</b></label>
+              <input type="text" placeholder="中年前身体状况(-1~1,0正常)" name="pca_9" required>
+              <label><b>运动能力</b></label>
+              <input type="text" placeholder="运动能力(-1~1,0正常)" name="pca_10" required>
+              <input type="text" style="display: none" name="gender" value="女">
+              <button type="submit" style="margin-left: 47%;">提交</button>
+          </div>
+
+          <div class="container" style="background-color:#f1f1f1">
+              <button type="button" onclick="document.getElementById('id02').style.display='none'" class="btn btn-default">Cancel</button>
+          </div>
+      </form>
+  </div>
+  </body>
+</html>
+<script type="text/javascript">
+    var totalNum=1392730000;
+    var nums=0;
+    setTimeout(timedCount(nums),50);
+    function timedCount(nums) {
+        var count = Math.round(totalNum/10000);
+        // var count = Math.round(totalNum/1);
+        nums = nums + count;
+        document.getElementById('num1').innerHTML=nums
+        if(nums<totalNum){
+            setTimeout(function () {timedCount(nums)},50)
+        }else {
+            document.getElementById('num1').innerHTML = totalNum
+        }
+
+    }
+    var totalNum2=76.7;
+    var nums2=0;
+    setTimeout(timedCount2(nums2),50);
+    function timedCount2(nums2) {
+        var count2 = Math.round(totalNum2/70);
+        nums2 = nums2 + count2;
+        document.getElementById('num2').innerHTML=nums2
+        if(nums2<totalNum2){
+            setTimeout(function () {timedCount2(nums2)},50)
+        }else {
+            document.getElementById('num2').innerHTML = totalNum2
+        }
+
+    }
+    var totalNum3=10.94;
+    var nums3=0;
+    setTimeout(timedCount3(nums3),50);
+    function timedCount3(nums3) {
+        var count3 = Math.round(totalNum3/1);
+        nums3 = nums3 + count3;
+        document.getElementById('num3').innerHTML=nums3+'%'
+        if(nums3<totalNum3){
+            setTimeout(function () {timedCount3(nums3)},50)
+        }else {
+            document.getElementById('num3').innerHTML = totalNum3+'%'
+        }
+
+    }
+    var totalNum4=7.09;
+    var nums4=0;
+    setTimeout(timedCount4(nums4),50);
+    function timedCount4(nums4) {
+        var count4 = Math.round(totalNum4/2);
+        nums4 = nums4 + count4;
+        document.getElementById('num4').innerHTML=nums4+'%'
+        if(nums4<totalNum4){
+            setTimeout(function () {timedCount4(nums4)},50)
+        }else {
+            document.getElementById('num4').innerHTML = totalNum4+'%'
+        }
+
+    }
+
+</script>
+
